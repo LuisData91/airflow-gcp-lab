@@ -17,7 +17,7 @@ El flujo del pipeline es el siguiente:
 - FastAPI
 - Docker & Docker Compose
 - Python
-## ▶ Instrucciones para Ejecutar el Proyecto
+##  Instrucciones para Ejecutar el Proyecto
 
 ###  Requisitos previos
 - Docker Desktop instalado
@@ -42,3 +42,41 @@ El flujo del pipeline es el siguiente:
 Comando para verificar la data
 SELECT * FROM sales_dwh.sales_summary;
 
+##  Evidencias de Ejecución
+
+### GCP 1️ Pub/Sub: Topic y Suscripción
+Captura de la consola de Google Cloud mostrando el **Topic `sales-topic`** y la **Suscripción `sales-sub`** creados.
+
+![PubSub Topic y Subscription](screenshots/Imagen1.png)
+
+---
+
+### GCP 2️ BigQuery: Tabla `sales_summary`
+Esquema de la tabla agregada `sales_summary` creada en BigQuery.
+
+![BigQuery Schema](screenshots/Imagen2.png)
+
+Consulta `SELECT *` mostrando los datos cargados.
+
+![BigQuery Data](screenshots/Imagen3.png)
+
+---
+
+### Airflow 1️ DAG ejecutado correctamente
+Vista **Graph/Grid** del DAG `sales_pipeline_gcp` con todas las tareas en estado **Success**.
+
+![Airflow DAG Success](screenshots/Imagen4.png)
+
+---
+
+### Airflow 2️ Logs de procesamiento
+Logs de la tarea `process_and_upload_gcs` evidenciando el procesamiento de mensajes desde Pub/Sub.
+
+![Airflow Logs](screenshots/Imagen5.png)
+
+---
+
+### API 1️ Envío de órdenes
+Captura de **Swagger UI** mostrando una respuesta exitosa (**200 OK**) al enviar una orden mediante `POST /order`.
+
+![Swagger Order](screenshots/Imagen6.png)
