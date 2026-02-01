@@ -1,0 +1,14 @@
+# Variables de entorno
+.env
+
+# Credenciales GCP
+google_credentials.json
+
+# Airflow
+logs/
+airflow.db
+
+# Python
+__pycache__/
+*.pyc
+
